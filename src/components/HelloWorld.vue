@@ -1,113 +1,216 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div id="app">
+    <div id="scroll">
+      <div id="cover"></div>
+      <div id="coverhover">
+        <div id="title">
+          <p>百鳥朝鳳</p>
+          <p id="en_title">Chrono Cross with Birds</p>
+          <p id="desc">
+            The history of Chinese art is very detailed about the loong, but the
+            Fenghuang does not seem to be depicted as much or as important.
+            Therefore, this project hopes to show how the Fenghuang has been
+            portrayed in Chinese art history, and how it has changed through
+            multiple latitudes such as time, politics, and religion. Starting
+            from the Fenghuang, we also invistigate how other two kinds of birds
+            are appreciated in a historical context.
+          </p>
+          <router-link to="/exhibition" class="button"
+            >Enter Exhibition</router-link
+          >
+          <div id="footer">
+            Curated by Sky Lyu, Catherine Liu, Richard Zheng,<br />
+            Monica Xie, Yijian Liu
+            <hr />
+            Background: Hundreds of Birds Paying Homage to the Fenghuang<br />Shen
+            Quan, Qing Dynasty
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
+import anime from "animejs/lib/anime.es.js";
+import bk from "../assets/landing.jpg";
 export default {
-  name: 'HelloWorld',
-  data () {
+  /* eslint-disable */
+  data: function () {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
-}
+      dura: 10000,
+    };
+  },
+  mounted() {
+    // console.log(typeof(bk));
+    var self = this;
+    var bkimg = new Image();
+    bkimg.onload = function () {
+      console.log("image loaded");
+      document.getElementById("scroll").style.backgroundImage =
+        "url(" + this.src + ")";
+      self.afterLoad();
+    };
+    bkimg.src = bk; //"https://yjl450.github.io/HCA_site/static/img/landing.4404de5.jpg";
+  },
+  methods: {
+    afterLoad() {
+      var propA = "linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1))";
+      var propB = "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))";
+      console.log(propA);
+      /* eslint-disable */
+      anime({
+        targets: "#cover",
+        background: [propA, propB],
+        // background: ['linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), url(\''+bg+'\')', 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(\''+bg+'\')'],
+        // background: ["linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1))", "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))"],
+        duration: 1000,
+        easing: "easeInOutSine",
+      });
+      anime({
+        targets: "#scroll",
+        delay: 300,
+        backgroundPosition: ["100%", "0%"],
+        // translateX: -250,
+        duration: this.dura,
+        easing: "easeInOutSine",
+      });
+      setTimeout(() => {
+        document.getElementById("cover").style.display = "none";
+        document.getElementById("coverhover").style.visibility = "visible";
+        document.getElementById("title").style.visibility = "visible";
+      }, this.dura);
+    },
+  },
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+@font-face {
+  font-family: fangsong;
+  src: url("../assets/WenYueGuTiFangSong-min.ttf") format("truetype");
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
 }
-li {
+
+#app {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: "";
+  display: flex;
+}
+
+#scroll {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: right;
+}
+
+#cover {
+  height: 100%;
+  width: 100%;
+}
+
+#coverhover {
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.26) 50%,
+    rgba(0, 0, 0, 0.73) 65%,
+    rgba(0, 0, 0, 0.9251050762101716) 80%
+  ) !important;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#coverhover:hover {
+  height: 100%;
+  color: white;
+  width: 100%;
+  opacity: 1;
+  /* background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(38,15,0,0.26) 45%, rgba(38,15,0,0.73) 57%, rgba(38,15,0,0.9251050762101716) 70%)!important; */
+}
+
+p {
+  margin: 10px;
+}
+
+#title {
+  padding-top: 50px;
+  padding-left: 60%;
+  padding-right: 4%;
+  font-family: fangsong;
+  font-size: 80px;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+#title:hover {
+  opacity: 1;
+}
+
+#en_title {
+  font-size: 45px;
+}
+
+#desc {
+  margin-right: 20%;
+  margin-top: 6%;
+  font-size: 22px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.button {
+  margin-left: 2%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  padding: 10px 25px 10px 25px;
+  font-size: 22px;
+  color: #ffffff;
+  border: solid #ffffff 1px;
+  text-decoration: none;
   display: inline-block;
-  margin: 0 10px;
+  text-align: center;
+  transition: 0.5s;
 }
-a {
-  color: #42b983;
+
+.button:hover {
+  background: #ffffff;
+  color: rgba(0, 0, 0, 1);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+hr {
+  border-color: rgb(165, 165, 165);
+}
+
+#footer {
+  margin-left: 1%;
+  font-size: 18px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  position: absolute;
+  color: rgb(165, 165, 165);
+  bottom: 20px;
 }
 </style>
