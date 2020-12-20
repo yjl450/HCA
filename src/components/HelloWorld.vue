@@ -5,19 +5,26 @@
       <div id="coverhover">
         <div id="title">
           <p>百鳥朝鳳</p>
-          <p id="en_title">Chrono Cross with Birds</p>
-          <p id="desc">
-            The history of Chinese art is very detailed about the loong, but the
-            Fenghuang does not seem to be depicted as much or as important.
-            Therefore, this project hopes to show how the Fenghuang has been
-            portrayed in Chinese art history, and how it has changed through
-            multiple latitudes such as time, politics, and religion. Starting
-            from the Fenghuang, we also invistigate how other two kinds of birds
-            are appreciated in a historical context.
-          </p>
-          <router-link to="/exhibition" class="button"
-            >Enter Exhibition</router-link
-          >
+          <p id="en_title">Chrono Cross of Fenghuang</p>
+          <div id="desc">
+            <p>
+              The image of the Fenghuang has changed and blended over time and
+              in different cultural contexts to become one of our most important
+              cultural elements today. But where did she originate? What kind of
+              animal is she? And how has she evolved?
+            </p>
+            <p>
+              The history of Chinese art is very detailed about the loong, but
+              the Fenghuang does not seem to be depicted as much or as
+              important. Therefore, this project hopes to show how the Fenghuang
+              has been portrayed in Chinese art history, and how it has changed.
+              We hope to illustrate the image of the Fenghuang and its changes
+              through multiple latitudes such as time, politics, and religion.
+            </p>
+          </div>
+          <router-link to="/comparison" class="button">
+            Enter Exhibition
+          </router-link>
           <div id="footer">
             Curated by Sky Lyu, Catherine Liu, Richard Zheng,<br />
             Monica Xie, Yijian Liu
@@ -47,7 +54,7 @@ export default {
     var self = this;
     var bkimg = new Image();
     bkimg.onload = function () {
-      console.log("image loaded");
+      // console.log("image loaded");
       document.getElementById("scroll").style.backgroundImage =
         "url(" + this.src + ")";
       self.afterLoad();
@@ -56,15 +63,13 @@ export default {
   },
   methods: {
     afterLoad() {
-      var propA = "linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1))";
-      var propB = "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))";
-      console.log(propA);
+      var propA = "linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1))";
+      var propB = "linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0))";
+      // console.log(propA);
       /* eslint-disable */
       anime({
         targets: "#cover",
         background: [propA, propB],
-        // background: ['linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), url(\''+bg+'\')', 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(\''+bg+'\')'],
-        // background: ["linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1))", "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))"],
         duration: 1000,
         easing: "easeInOutSine",
       });
@@ -120,6 +125,7 @@ body {
 }
 
 #coverhover {
+  margin-left: 100px;
   height: 100%;
   width: 100%;
   visibility: hidden;
@@ -148,7 +154,7 @@ p {
 }
 
 #title {
-  padding-top: 50px;
+  padding-top: 2%;
   padding-left: 60%;
   padding-right: 4%;
   font-family: fangsong;
@@ -165,15 +171,16 @@ p {
 }
 
 #en_title {
-  font-size: 45px;
+  font-size: 40px;
 }
 
 #desc {
   margin-right: 20%;
   margin-top: 6%;
-  font-size: 22px;
+  font-size: 0.23em;
   text-align: justify;
   text-justify: inter-ideograph;
+  text-indent: 2em;
 }
 
 .button {
