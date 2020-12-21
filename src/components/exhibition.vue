@@ -2,7 +2,9 @@
   <div id="exhi">
     <div id="exhiContainer">
       <transition name="fade">
+      <keep-alive>
         <router-view></router-view>
+      </keep-alive>
       </transition>
     </div>
     <div id="nav">
@@ -71,7 +73,7 @@ export default {
     setTimeout(() => {
       document.getElementById("exhiContainer").style.height =
         window.innerHeight - document.getElementById("navImg").height + "px";
-    }, 10);
+    }, 500);
     window.onresize = () => {
       document.getElementById("exhiContainer").style.height =
         window.innerHeight - document.getElementById("navImg").height + "px";
@@ -123,7 +125,7 @@ export default {
 #navImg {
   width: 100%;
   vertical-align: top;
-  z-index: -100;
+  z-index: 0;
   position: absolute;
   height: 100%;
 }
@@ -133,7 +135,7 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  z-index: 100;
+  z-index: 10000;
 }
 
 #navButton > div > img {

@@ -75,7 +75,7 @@ export default {
   transition: 0.5s;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 100%;
-  z-index: 1000;
+  z-index: 80000;
   cursor: pointer;
 }
 
