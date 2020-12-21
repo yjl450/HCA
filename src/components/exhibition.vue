@@ -1,9 +1,10 @@
 <template>
   <div id="exhi">
-    <transition name="fade">
-      <div id="exhiContainer">
-        <router-view></router-view></div
-    ></transition>
+    <div id="exhiContainer">
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
+    </div>
     <div id="nav">
       <img id="navImg" src="../assets/navigation.jpg" />
       <div id="navButton">
