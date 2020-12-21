@@ -13,33 +13,33 @@
         <div>
           <img class="navB noNav" src="../assets/nav/navigation_01.jpg" />
         </div>
-        <div @click="navTo('/comparison')">
+        <div @click="navTo('/shang')">
           <img
             class="navB"
-            id="/comparison"
+            id="/shang"
             src="../assets/nav/navigation_02.jpg"
           />
         </div>
-        <div @click="navTo('/shang')">
-          <img class="navB" id="/shang" src="../assets/nav/navigation_03.jpg" />
-        </div>
         <div @click="navTo('/qin')">
-          <img class="navB" id="/qin" src="../assets/nav/navigation_04.jpg" />
+          <img class="navB" id="/qin" src="../assets/nav/navigation_03.jpg" />
         </div>
         <div @click="navTo('/wei')">
-          <img class="navB" id="/wei" src="../assets/nav/navigation_05.jpg" />
+          <img class="navB" id="/wei" src="../assets/nav/navigation_04.jpg" />
         </div>
         <div @click="navTo('/tang')">
-          <img class="navB" id="/tang" src="../assets/nav/navigation_06.jpg" />
+          <img class="navB" id="/tang" src="../assets/nav/navigation_05.jpg" />
         </div>
         <div @click="navTo('/song')">
-          <img class="navB" id="/song" src="../assets/nav/navigation_07.jpg" />
+          <img class="navB" id="/song" src="../assets/nav/navigation_06.jpg" />
         </div>
         <div @click="navTo('/yuan')">
-          <img class="navB" id="/yuan" src="../assets/nav/navigation_08.jpg" />
+          <img class="navB" id="/yuan" src="../assets/nav/navigation_07.jpg" />
         </div>
         <div @click="navTo('/ming')">
-          <img class="navB" id="/ming" src="../assets/nav/navigation_09.jpg" />
+          <img class="navB" id="/ming" src="../assets/nav/navigation_08.jpg" />
+        </div>
+        <div @click="navTo('/comparison')">
+          <img class="navB" id="/comparison" src="../assets/nav/navigation_09.jpg" />
         </div>
         <div @click="navTo('/summary')">
           <img
