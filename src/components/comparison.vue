@@ -108,6 +108,7 @@
 #pho{
   width: 50%;
   transition: 0.5s;
+  z-index: 10000000;
 }
 
 #pho:hover{

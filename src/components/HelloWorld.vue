@@ -22,7 +22,7 @@
               through multiple latitudes such as time, politics, and religion.
             </p>
           </div>
-          <router-link to="/comparison" class="button">
+          <router-link to="/shang" class="button">
             Enter Exhibition
           </router-link>
           <div id="footer">

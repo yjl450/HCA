@@ -28,7 +28,7 @@
         <img id="stage3" class="stg" src="../assets/qing.jpg" />
         <div class="stage">
           Late Stage
-          <div class="desc">
+          <div class="desc" id="desc3">
             <br />
             - From Ming to Qing Dynasty
             <br /><br />
@@ -109,7 +109,8 @@
 #compContainer {
   height: 100%;
   widows: 100%;
-  background-color: #0089A7;
+  /* background-color: #0089A7; */
+  background-image:  linear-gradient(rgba(0, 136, 167, 0.699)), url("../assets/pattern.jpg");
   overflow: auto;
   color: white;
   padding-left: 10%;
@@ -189,6 +190,11 @@
 
 a{
   color: white !important;
+}
+
+#desc3{
+  color: black;
+  font-weight: bold;
 }
 </style>
 
