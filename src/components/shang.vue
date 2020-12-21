@@ -1,12 +1,12 @@
 <template>
-    <div id="hello">hello</div>
+    <div id="hello">shang</div>
 </template>
 
 <style scoped>
 #hello{
     /* background-color: blue; */
     width: 100%;
-    height: calc(100% - 96px);
+    height: 100%
 }
 </style>
 

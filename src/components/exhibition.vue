@@ -1,7 +1,9 @@
 <template>
   <div id="exhi">
-    <transition name="fade"> <router-view></router-view></transition>
-    <!-- <router-link to="/">hello</router-link> -->
+    <transition name="fade">
+      <div id="exhiContainer">
+        <router-view></router-view></div
+    ></transition>
     <div id="nav">
       <img id="navImg" src="../assets/navigation.jpg" />
       <div id="navButton">
@@ -56,9 +58,23 @@ import navImg from "@/assets/navigation.jpg";
 import router from "@/router";
 
 export default {
+  data() {
+    return {
+      // Component size
+      footerHeight: 0,
+    };
+  },
   mounted() {
-    console.log(this.$route.path);
+    // console.log(this.$route.path);
     this.chosen();
+    setTimeout(() => {
+      document.getElementById("exhiContainer").style.height =
+        window.innerHeight - document.getElementById("navImg").height + "px";
+    }, 10);
+    window.onresize = () => {
+      document.getElementById("exhiContainer").style.height =
+        window.innerHeight - document.getElementById("navImg").height + "px";
+    };
   },
   updated() {
     console.log(this.$route.path);
@@ -72,6 +88,9 @@ export default {
         nb[i].style.opacity = "0";
       }
       document.getElementById(this.$route.path).style.opacity = "1";
+
+      document.getElementById("exhiContainer").style.height =
+        window.innerHeight - document.getElementById("navImg").height + "px";
     },
     navTo(a) {
       router.push(a);
@@ -83,6 +102,11 @@ export default {
 <style scoped>
 #exhi {
   height: 100%;
+}
+
+#exhiContainer {
+  /* background-color: blueviolet; */
+  width: 100%;
 }
 
 #nav {
