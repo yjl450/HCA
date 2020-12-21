@@ -1,7 +1,7 @@
 <template>
   <div id="large">
     <!-- <input @click="musicControl"> -->
-    <div id="button" @click="musicControl">
+    <div id="button" @click="musicControl" :title="control">
       <img id="icon" src="./assets/music.png" />
     </div>
     <!-- </input> -->
@@ -20,6 +20,7 @@ export default {
   data: function () {
     return {
       sound: {},
+      control: "Play",
     };
   },
   mounted() {
@@ -37,8 +38,10 @@ export default {
     musicControl() {
       if (this.sound.playing()) {
         this.sound.pause();
+        this.control = "Play";
       } else {
         this.sound.play();
+        this.control = "Pause";
       }
     },
   },
